@@ -1,0 +1,62 @@
+/******/
+.ct-list{
+    list-style:none;
+    padding:3px; margin:0;
+    border:1px solid #ccc;
+    overflow: auto;
+    background:#fff;
+    border-radius: 4px;
+}
+.ct-list span {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.ct-list ul, .ct-list li{
+    list-style:none;
+    padding:0; margin:0;
+}
+.ct-list div.ct-node{
+    list-style: none;
+    height: 18px;
+    line-height: 18px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.ct-indent{
+    display:inline-block;
+    width:16px; height:18px;
+}
+.ct-hit{
+    cursor: default;
+    display:inline-block;
+    width:16px; height:18px;
+}
+.ct-closed .ct-hit{
+    background: url('collapse.png') no-repeat left center;
+    background-size:12px 12px;
+}
+.ct-opened .ct-hit{
+    background: url('expand.png') no-repeat left center;
+    background-size:12px 12px;
+}
+.ct-node-text{
+    cursor: default;
+    display:inline-block;
+    height:18px;
+    line-height:18px;
+    white-space: nowrap;
+    vertical-align: top;
+}
+.ct-collapsed{
+    display:none;
+}
+.ct-expanded{
+    display:block;
+}
+.ct-node-selected {
+    background-color: rgba(0,0,255,0.6);
+    color:#fff;
+}

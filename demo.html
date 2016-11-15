@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ComboTree</title>
+    <script src="jquery/jquery-1.12.4.min.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+    <script src="combotree.js"></script>
+    <link rel="stylesheet" href="combotree.css">
+    <style>
+        body{font-size:12px; margin:0; padding:0}
+    </style>
+</head>
+<body>
+
+<div style="padding:10px;">
+<input id="treeInput" type="text" />
+</div>
+<script>
+    $('#treeInput').comboTree({
+        url: 'data.json',
+        onselect: function(event, data){
+            console.log(data.id);
+        }
+    });
+</script>
+
+</body>
+</html>
