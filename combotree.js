@@ -4,6 +4,7 @@
 $.widget('ui.comboTree', {
     options: {
         maxHeight: 250,
+        data: {},
         onlyLeafSelect: false, //只有末端节点可以选择
         expandLevel: 0,        //默认展开级别，从0开始
         onselect: function (event, data) {}
@@ -27,10 +28,11 @@ $.widget('ui.comboTree', {
         this.ul = $('<ul>').appendTo(this.wapper).addClass('ct-list')
             .css({
                 'maxHeight': this.options.maxHeight,
-                'width': this.element.outerWidth() - 8
+                'width': this.element.outerWidth()
             });
 
         this._loadData();
+        this._bindEvent();
     },
 
     _show: function () {
@@ -41,20 +43,28 @@ $.widget('ui.comboTree', {
         this.wapper.hide();
     },
 
+    reload: function () {
+        this._loadData();
+    },
+
     _loadData: function () {
         var _self = this;
+        _self.ul.html('');
         $.ajax({
-            url: this.options.url,
+            url: _self.options.url,
             method: 'post',
+            data: _self.options.data,
             dataType: 'json'
         }).done(function (list) {
             if( ! list || ! list instanceof Array) {
                 alert('comboTree:数据格式不对');
                 return;
             }
-
-            _self._createTree(_self.ul, list, 0);
-            _self._bindEvent();
+            if(list.length > 0) {
+                _self._createTree(_self.ul, list, 0);
+            }else{
+                _self.ul.html('<li class="ct-nodata">没有数据</li>');
+            }
         }).fail(function () {
             alert("comboTree:加载数据发生错误");
         });

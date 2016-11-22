@@ -60,3 +60,7 @@
     background-color: rgba(0,0,255,0.6);
     color:#fff;
 }
+
+.ct-nodata{
+    color:#999;
+}
