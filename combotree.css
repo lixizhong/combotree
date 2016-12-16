@@ -23,7 +23,6 @@
     height: 18px;
     line-height: 18px;
     white-space: nowrap;
-    cursor: pointer;
 }
 .ct-indent{
     display:inline-block;
@@ -63,4 +62,11 @@
 
 .ct-nodata{
     color:#999;
+    height:18px;
+    line-height:18px;
+}
+.ct-cleardata{
+    height:18px;
+    line-height:18px;
+    cursor: default;
 }
